@@ -7,7 +7,7 @@ import org.jongo.Jongo;
 import org.jongo.MongoCollection;
 import uk.ac.aston.taxianalysis.model.Profit;
 
-public class JongoTaxiAnalysisService implements AbstractMongoTaxiAnalysisService {
+public class JongoTaxiAnalysisService {
 
     private String DB_NAME = "taxiAnalysis";
     private String AGGREGATED_DATA_COLLECTION = "aggregated_data";
