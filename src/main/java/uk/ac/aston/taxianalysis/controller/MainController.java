@@ -25,7 +25,7 @@ public class MainController {
         if(textFieldValidationSucessful()) {
             Profit profit = calculateProfitForDistance();
             double roundedProfitValue = Math.round(profit.getProfit() * 100.0) / 100.0;
-            outputLabel.setText(DEFAULT_OUTPUT_TEXT_LABEL + roundedProfitValue);
+            outputLabel.setText(DEFAULT_OUTPUT_TEXT_LABEL + "$" + roundedProfitValue);
             outputLabel.setVisible(true);
         }
     }

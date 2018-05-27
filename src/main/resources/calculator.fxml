@@ -19,7 +19,7 @@
             <Label layoutX="155.0" layoutY="112.0" text="Enter the distance for your journey (in miles):" />
             <TextField id="inputTextField" fx:id="inputTextField" layoutX="155.0" layoutY="146.0" prefHeight="25.0" prefWidth="237.0" />
             <Button id="submitBtn" layoutX="408.0" layoutY="146.0" mnemonicParsing="false" onAction="#onSubmitBtnPress" text="Submit" />
-            <Label id="outputLabel" layoutX="155.0" layoutY="192.0" text="Your predicted profit for the journey is" visible="false" />
+            <Label id="outputLabel" fx:id="outputLabel" layoutX="155.0" layoutY="192.0" text="Your predicted profit for the journey is" visible="false" />
       </children>
     </AnchorPane>
   </children>
