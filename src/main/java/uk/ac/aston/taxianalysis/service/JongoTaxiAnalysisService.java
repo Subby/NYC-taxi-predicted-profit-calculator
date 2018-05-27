@@ -1,14 +1,11 @@
 package uk.ac.aston.taxianalysis.service;
 
 import com.mongodb.DB;
-import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import org.jongo.Aggregate;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
 import uk.ac.aston.taxianalysis.model.Profit;
-
-import java.util.List;
 
 public class JongoTaxiAnalysisService implements AbstractMongoTaxiAnalysisService {
 
@@ -30,10 +27,11 @@ public class JongoTaxiAnalysisService implements AbstractMongoTaxiAnalysisServic
     }
 
 
-    public void calculateProfitForDistance(double distance) {
+    public Aggregate.ResultsIterator<Profit> calculateProfitForDistance(double distance) {
         final Aggregate.ResultsIterator<Profit> result = aggregatedDataCollection.aggregate("{$group:{_id:null, 'averageFareSum': {'$sum': '$averageFarePerMile'}, 'fuelCostSum': {'$sum': '$fuelCostPerMile'}}}")
                 .and("{$project:{predictedProfit:{'$multiply':" +
                         "[{'$subtract': ['$averageFareSum', '$fuelCostSum']}, #]}}}", distance)
                 .as(Profit.class);
+        return result;
     }
 }
